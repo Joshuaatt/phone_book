@@ -1,10 +1,10 @@
 class Contact
-  attr_reader(:contact_name, :contact_phone_number)
+  attr_reader(:contact_name, :contact_phone_numbers)
   @@all_contacts = []
 
   define_method(:initialize) do |attributes|
     @contact_name = attributes.fetch(:contact_name)
-    @contact_phone_number = attributes.fetch(:contact_phone_number)
+    @contact_phone_numbers = attributes.fetch(:contact_phone_numbers)
     @id = @@all_contacts.length().+(1)
   end
 
@@ -32,6 +32,6 @@ class Contact
     found_contact
   end
   define_method(:add_number) do |some_phone_number|
-    @contact_phone_number.push(some_phone_number)
+    @contact_phone_numbers.push(some_phone_number)
   end
 end
