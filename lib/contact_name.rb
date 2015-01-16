@@ -6,6 +6,7 @@ class ContactName
   define_method(:initialize) do |attributes|
     @first_name = attributes.fetch(:first_name)
     @last_name = attributes.fetch(:last_name)
+    #@id = @@all_names.length().+(1)
   end
 
   define_singleton_method(:all) do
