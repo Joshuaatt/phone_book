@@ -21,13 +21,13 @@ describe(Contact) do
     # add "returns all contacts spec"
   end
 
-  describe('#save_contact') do
-    it("takes an input of two contacts and returns the first") do
+  describe('#save') do
+    it("takes an input of two contacts and returns both contacts") do
       test_contact1 = Contact.new({:contact_name => "Joshua Atteberry", :contact_phone_number => "5125676637"})
-      test_contact1.save_contact()
+      test_contact1.save()
       test_contact2 = Contact.new({:contact_name => "Nikola Tesla", :contact_phone_number => "1234567890"})
-      test_contact2.save_contact()
-      expect(Contact.all_contacts()).to(eq(nil))
+      test_contact2.save()
+      expect(Contact.all_contacts()).to(eq([test_contact1, test_contact2]))
     end
   end
 

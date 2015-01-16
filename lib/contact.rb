@@ -11,8 +11,8 @@ class Contact
     @@all_contacts
   end
 
-  define_singleton_method(:save_contact) do
-    @@all_contacts.push(@contact_name, @contact_phone_number)
+  define_method(:save) do
+    @@all_contacts.push(self)
   end
 
 end
