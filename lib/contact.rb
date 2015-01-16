@@ -31,7 +31,7 @@ class Contact
     end
     found_contact
   end
-  define_method(:add_phone_number) do |contact_phone_number|
-    @contact_phone_number.push(contact_phone_number)
+  define_method(:add_number) do |some_phone_number|
+    @contact_phone_number.push(some_phone_number)
   end
 end
