@@ -2,6 +2,9 @@ require('rspec')
 require('contact_name')
 
 describe(ContactName) do
+  before() do
+    ContactName.clear()
+  end
   describe('#initialize') do
     it('is empty at first') do
       test_name = ContactName.new({:first_name => nil, :last_name => nil})
