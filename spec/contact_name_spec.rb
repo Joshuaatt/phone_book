@@ -39,4 +39,13 @@ describe(ContactName) do
       expect(ContactName.all()).to(eq([]))
     end
   end
+  describe('.find') do
+    it("returns phone number by its id number") do
+      test_name = ContactName.new({:first_name => "Joshua", :last_name => "Atteberry"})
+      test_name.save()
+      test_name2 = ContactName.new({:first_name => "Nikola", :last_name => "Tesla"})
+      test_name2.save()
+      expect(ContactName.find(test_name.id())).to(eq(test_name))
+    end
+  end
 end
