@@ -1,4 +1,4 @@
-class ContactName
+class Name
   attr_reader :first_name, :last_name
 
   @@all_names = []
@@ -25,9 +25,9 @@ class ContactName
   end
   define_singleton_method(:find) do |identification|
     found_name = nil
-    @@all_names.each() do |name|
-      if name.id().eql?(identification.to_i())
-        found_name = name
+    @@all_names.each() do |name_find|
+      if name_find.id().eql?(identification.to_i())
+        found_name = name_find
       end
     end
     found_name

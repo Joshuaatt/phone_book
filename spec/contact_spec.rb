@@ -1,5 +1,7 @@
 require('rspec')
 require('contact')
+require('name')
+require('phone_number')
 
 describe(Contact) do
   describe('#initialize') do
@@ -43,6 +45,14 @@ describe(Contact) do
       test_contact2 = Contact.new({:contact_name => "Nikola Tesla", :contact_phone_number => "1234567890"})
       test_contact2.save()
       expect(Contact.find(test_contact.id())).to(eq(test_contact))
+    end
+  end
+  describe('#add_phone_number') do
+    it("adds a new phone number to a contact") do
+      test_contact = Contact.new(:contact_name => "Sally", :contact_phone_number => "4242424242")
+      test_number = PhoneNumber.new(:number => "0987654321")
+      test_contact.add_phone_number(test_number)
+      expect(test_contact.contact_phone_number()).to(eq([test_number]))
     end
   end
 end
