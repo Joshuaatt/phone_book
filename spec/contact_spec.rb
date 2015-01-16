@@ -18,7 +18,6 @@ describe(Contact) do
       test_contact = Contact.new({:contact_name => nil, :contact_phone_number => nil})
       expect(Contact.all_contacts()).to(eq([]))
     end
-    # add "returns all contacts spec"
   end
 
   describe('#save') do
@@ -37,5 +36,13 @@ describe(Contact) do
       expect(Contact.all_contacts()).to(eq([]))
     end
   end
-
+  describe('.find') do
+    it("returns contact by its id number") do
+      test_contact = Contact.new({:contact_name => "Joshua", :contact_phone_number => "5125676637"})
+      test_contact.save()
+      test_contact2 = Contact.new({:contact_name => "Nikola Tesla", :contact_phone_number => "1234567890"})
+      test_contact2.save()
+      expect(Contact.find(test_contact.id())).to(eq(test_contact))
+    end
+  end
 end
