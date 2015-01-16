@@ -8,4 +8,11 @@ describe(ContactPhoneNumber) do
       expect(ContactPhoneNumber.all()).to(eq([]))
     end
   end
+  describe('#save') do
+    it('saves the phone number and returns it') do
+      test_number = ContactPhoneNumber.new({:phone_number => '5125676637'})
+      test_number.save()
+      expect(ContactPhoneNumber.all()).to(eq('5125675537'))
+    end
+  end
 end

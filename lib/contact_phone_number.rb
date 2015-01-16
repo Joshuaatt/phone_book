@@ -10,4 +10,8 @@ class ContactPhoneNumber
   define_singleton_method(:all) do
     @@all_phone_numbers
   end
+
+  define_method(:save) do
+    @@all_phone_numbers.push(self)
+  end
 end
