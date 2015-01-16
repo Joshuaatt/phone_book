@@ -1,5 +1,5 @@
 class Contact
-  attr_reader :contact_name, :contact_phone_number
+  attr_reader(:contact_name, :contact_phone_number)
   @@all_contacts = []
 
   define_method(:initialize) do |attributes|
@@ -9,6 +9,10 @@ class Contact
 
   define_singleton_method(:all_contacts) do
     @@all_contacts
+  end
+
+  define_singleton_method(:save_contact) do
+    @@all_contacts.push(@contact_name, @contact_phone_number)
   end
 
 end
