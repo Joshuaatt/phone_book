@@ -15,4 +15,8 @@ class ContactName
   define_method(:save) do
     @@all_names.push(self)
   end
+
+  define_singleton_method(:clear) do
+    @@all_names = []
+  end
 end

@@ -29,4 +29,11 @@ describe(ContactName) do
       expect(test_name.last_name()).to(eq("Atteberry"))
     end
   end
+  describe(".clear") do
+    it("empties out all saved contact names") do
+      ContactName.new({:first_name => "Joshua", :last_name => "Atteberry"})
+      ContactName.clear()
+      expect(ContactName.all()).to(eq([]))
+    end
+  end
 end
