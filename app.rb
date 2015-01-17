@@ -6,13 +6,13 @@ require('./lib/phone_number')
 require('./lib/name')
 
 get('/') do
-  @contact = Contact.all_contacts()
+  @all_contacts = Contact.all_contacts()
   erb(:index)
 end
 
 post('/contact') do
-  name = params.fetch('name')
+  name = params.fetch('contact_names')
   Contact.new(name).save()
-  @contact = Contact.all_contacts()
+  @all_contacts = Contact.all_contacts()
   erb(:index)
 end
