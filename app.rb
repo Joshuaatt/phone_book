@@ -10,16 +10,22 @@ get '/'  do
   erb :index
 end
 
-post '/contact' do
-  name = params.fetch 'contact_names'
-  phone = PhoneNumber.new(number: params.fetch('phone_number'))
-  Contact.new(contact_names: name, contact_phone_numbers: phone).save
+post '/contacts' do
+  name = params['contact_names']
+  Contact.new(contact_names: name).save
+  @contacts = Contact.all_contacts
   redirect '/'
 end
 
-get '/contacts/' do
 
-  @contacts = Contact.all_contacts
-  @phone_number =
-  erb :contacts
+post '/phone_numbers' do
+  number = params['number']
+  @contact = Contact.find(params['contact_id']) # params from hidden input on contact.erb
+  @contact.add_number(number)
+  erb :contact
+end
+
+get '/contact/:id' do
+  @contact = Contact.find(params['id'])
+  erb :contact
 end

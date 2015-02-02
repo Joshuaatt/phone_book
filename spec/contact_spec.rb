@@ -8,13 +8,14 @@ describe(Contact) do
     Contact.clear()
   end
   describe('#initialize') do
-    it("takes the name and phone number for a newly created contact and returns contact name") do
-      test_contact = Contact.new({:contact_names => "Joshua Atteberry", :phone_numbers => "5125676637"})
+    it("takes the name for a newly created contact and returns contact name") do
+      test_contact = Contact.new({:contact_names => "Joshua Atteberry", :phone_numbers => nil})
       expect(test_contact.contact_names()).to(eq("Joshua Atteberry"))
     end
-    it("takes the name and phone number for a newly created contact and returns contact name") do
-      test_contact = Contact.new({:contact_names => "Joshua Atteberry", :phone_numbers => PhoneNumber.new('512-567-6637')})
-      expect(test_contact.phone_numbers()).to(eq("5125676637"))
+    it("takes the name and phone number for a newly created contact and returns contact phone number") do
+      test_contact = Contact.new({ contact_names: "Joshua Atteberry" })
+      test_contact.add_number("5125676637")
+      expect(test_contact.phone_numbers()).to(eq(["5125676637"]))
     end
   end
 

@@ -2,16 +2,14 @@
 
 <h3>Add a contact here:</h3>
 
-<form action='/contact' method='post'>
+<form action='/contacts' method='post'>
   <label for='contact_names'>Contact name:</label>
   <input id='contact_names' name='contact_names' type='text'>
-  <label for='phone_number'>Phone number:</label>
-  <input id='phone_number' name='phone_number' type='text'>
   <button type='submit'>Add Contact</button>
 </form>
 
 <ul>
   <% @contacts.each() do |contact| %>
-    <li><a href="/contacts/<% contact.id %>"><%= contact.contact_names %></a>  <%= contact.phone_numbers %></li>
+    <li><a href="/contact/<%= contact.id %>"><%= contact.contact_names %></a></li>
   <% end %>
 </ul>

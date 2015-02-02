@@ -1,0 +1,17 @@
+<h1>Add phone numbers    <a href='/'>Home</a></h1>
+
+<hr>
+<form action='/phone_numbers' method='post'>
+  <input id='contact_id' name='contact_id' type='hidden' value='<%= @contact.id %>'
+  <label for='number'>Phone number:</label>
+  <input id='number' name='number' type='text'>
+  <button type='submit'>Add number</button>
+</form>
+<hr>
+<p>Here are all your phone numbers for <%= @contact.contact_names %></p>
+
+<ul>
+  <% @contact.phone_numbers.each do |numbers| %>
+    <li><%= numbers %></li>
+  <% end %>
+</ul>
