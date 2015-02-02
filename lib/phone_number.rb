@@ -1,5 +1,5 @@
 class PhoneNumber
-  attr_reader :number
+  attr_reader(:number, :id)
 
   @@all_numbers = []
 
